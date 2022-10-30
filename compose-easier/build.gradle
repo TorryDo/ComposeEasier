@@ -2,12 +2,13 @@ plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
 
-    id 'maven-publish'
+//    id 'maven-publish'
+    id 'com.vanniktech.maven.publish'
 }
 
 android {
 
-    namespace = 'com.torrydo.compose_easier'
+//    namespace = 'io.github.torrydo.compose-easier'
 
     publishing {
         singleVariant("release") {
@@ -44,21 +45,30 @@ android {
         jvmTarget = '1.8'
     }
 
-}
-
-afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication) {
-                from components.release
-                groupId 'com.torrydo'
-                artifactId 'compose_easier'
-                version = '0.1'
-//                version = android.defaultConfig.versionName // or manually '1.0'
-            }
+    composeOptions {
+        kotlinCompilerExtensionVersion compose_version
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
         }
     }
+
 }
+
+//afterEvaluate {
+//    publishing {
+//        publications {
+//            release(MavenPublication) {
+//                from components.release
+//                groupId 'io.github.torrydo'
+//                artifactId 'compose-easier'
+//                version = '0.1'
+////                version = android.defaultConfig.versionName // or manually '1.0'
+//            }
+//        }
+//    }
+//}
 
 dependencies {
 

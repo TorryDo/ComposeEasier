@@ -24,9 +24,9 @@ fun LazyListState.isScrollingUp(): Boolean {
 }
 
 @Composable
-inline fun LazyListState.listenScrollDirection(
-    crossinline onScrollUp: () -> Unit,
-    crossinline onScrollDown: () -> Unit
+fun LazyListState.listenScrollDirection(
+    onScrollUp: () -> Unit,
+    onScrollDown: () -> Unit
 ) {
 
     val isScrollingUp = this.isScrollingUp()

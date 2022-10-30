@@ -50,30 +50,3 @@ open class BottomNavItem(
 ) : NavItem(route, title)
 
 
-//@Composable
-//fun NavGraphBuilder.nestedBottomNavBar(
-//    navHostController: NavHostController,
-//    route: String,
-//    startDestination: String,
-//    bottomNavItems: List<BottomNavItem>,
-//    screen: @Composable (route: String) -> Unit
-//) {
-//
-//    val navBackStackEntry by navHostController.currentBackStackEntryAsState()
-//    val currentDestination = navBackStackEntry?.destination
-//
-//    navigation(startDestination = startDestination, route = route) {
-//
-//        BottomNavigation {
-//            bottomNavItems.forEach { screen ->
-//                BottomNavItem(
-//                    itemHomeBottom = screen,
-//                    currentDestination = currentDestination,
-//                    navController = navHostController
-//                )
-//            }
-//        }
-//
-//
-//    }
-

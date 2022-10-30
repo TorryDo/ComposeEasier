@@ -1,4 +1,4 @@
-package com.torrydo.compose_easier.lazy_list
+package com.torrydo.compose_easier.sub_compose
 
 import androidx.compose.foundation.gestures.FlingBehavior
 import androidx.compose.foundation.gestures.ScrollableDefaults
@@ -16,7 +16,7 @@ import com.torrydo.compose_easier.ext.LaunchedEffectWith
 import com.torrydo.compose_easier.ext.isScrollingUp
 
 @Composable
-inline fun AdvanceLazyColumn(
+fun AdvancedLazyColumn(
     modifier: Modifier = Modifier,
     state: LazyListState = rememberLazyListState(),
     contentPadding: PaddingValues = PaddingValues(0.dp),
@@ -28,11 +28,11 @@ inline fun AdvanceLazyColumn(
     userScrollEnabled: Boolean = true,
 
 
-    crossinline onScrollUp: () -> Unit,
-    crossinline onScrollDown: () -> Unit,
+    onScrollUp: () -> Unit,
+    onScrollDown: () -> Unit,
 
 
-    noinline content: LazyListScope.() -> Unit
+    content: LazyListScope.() -> Unit
 ) {
 
     val isScrollingUp = state.isScrollingUp()
