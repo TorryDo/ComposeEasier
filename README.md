@@ -3,6 +3,6 @@
 dependency:
 ```gradle
     dependencies {
-        implementation("io.github.torrydo:compose-easier:0.0.1")
+        implementation("io.github.torrydo:compose-easier:0.0.2")
     }
 ```
