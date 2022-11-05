@@ -15,6 +15,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.torrydo.compose_easier.view.ButtonEz
+import com.torrydo.compose_easier.view.CheckBoxEz
+import com.torrydo.compose_easier.view.SwitchEz
 import com.torrydo.compose_easier.view.TextFieldEz
 import com.torrydo.composeeasierlibrary.ui.theme.ComposeEasierLibraryTheme
 
@@ -38,14 +41,112 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Greeting(name: String) {
 
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.White),
+        contentAlignment = Alignment.Center
+    ) {
+        ButtonDemo()
+    }
+
+}
+
+
+@Composable
+private fun ButtonDemo(
+    modifier: Modifier = Modifier
+) {
+    Column(
+        modifier = modifier.height(250.dp),
+        verticalArrangement = Arrangement.SpaceBetween
+    ) {
+
+        Button(onClick = {}){
+            Text(text = "Default Button")
+        }
+
+        ButtonEz.Flat(onClick = {}) {
+            Text(text = "Flat Button")
+        }
+
+        ButtonEz.Outline(onClick = {}) {
+            Text(text = "Outlined Button")
+        }
+
+        ButtonEz.Gradient(onClick = {}) {
+            Text(text = "Gradient Button")
+        }
+
+
+    }
+}
+
+@Composable
+private fun CheckBoxDemo(
+    modifier: Modifier = Modifier
+) {
+    var state by remember { mutableStateOf(false) }
+
+    Column(
+        modifier = modifier,
+    ) {
+
+        CheckBoxEz.RoundedCorner(checked = state, onChange = { state = it })
+
+        Spacer(modifier = Modifier.height(20.dp))
+
+        CheckBoxEz.RoundedCorner(checked = state.not(), onChange = { state = it })
+
+
+    }
+}
+
+@Composable
+private fun SwitchDemo(
+    modifier: Modifier = Modifier
+) {
     var state by remember { mutableStateOf(false) }
 
     var state2 by remember { mutableStateOf(false) }
 
+    Row(
+        modifier = modifier
+            .fillMaxWidth(),
+    ) {
+        Spacer(modifier = Modifier.weight(1f))
+
+        Column {
+            SwitchEz.Border(isOn = state, onChange = { state = it })
+
+            Spacer(modifier = Modifier.height(20.dp))
+
+            SwitchEz.Border(isOn = state.not())
+        }
+
+
+        Spacer(modifier = Modifier.width(60.dp))
+
+        Column {
+            SwitchEz.Fill(isOn = state2, onChange = { state2 = it })
+
+            Spacer(modifier = Modifier.height(20.dp))
+
+            SwitchEz.Fill(isOn = state2.not())
+        }
+
+        Spacer(modifier = Modifier.weight(1f))
+    }
+}
+
+@Composable
+private fun TextFieldDemo(
+    modifier: Modifier = Modifier
+) {
     var strState by remember { mutableStateOf("") }
 
     Column(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize()
             .background(Color.DarkGray)
             .padding(vertical = 100.dp),
@@ -69,7 +170,6 @@ fun Greeting(name: String) {
             modifier = Modifier.height(40.dp),
         )
     }
-
 }
 
 @Preview(showBackground = true)

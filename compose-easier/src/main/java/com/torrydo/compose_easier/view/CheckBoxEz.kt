@@ -33,7 +33,7 @@ object CheckBoxEz{
         iconColor: Color = Color.White,
         checked: Boolean,
         enabled: Boolean = true,
-        onCheckedChange: (Boolean) -> Unit
+        onChange: (Boolean) -> Unit
     ) {
         val _background = if (checked) checkedBackgroundColor else Color.Transparent
         val _borderWidth = if (checked) 0.dp else borderWidth
@@ -51,7 +51,7 @@ object CheckBoxEz{
             contentAlignment = Alignment.Center
         ) {
             IconButton(
-                onClick = { onCheckedChange(checked.not()) },
+                onClick = { onChange(checked.not()) },
                 modifier = Modifier.fillMaxSize(),
                 enabled = enabled
             ) {
