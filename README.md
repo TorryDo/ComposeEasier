@@ -65,7 +65,7 @@ android {
 3. Declare the dependencies in the module-level `build.gradle` file
 ```gradle
     dependencies {
-        implementation("io.github.torrydo:compose-easier:0.0.2")
+        implementation("io.github.torrydo:compose-easier:<LATEST_VERSION>")
     }
 ```
 
