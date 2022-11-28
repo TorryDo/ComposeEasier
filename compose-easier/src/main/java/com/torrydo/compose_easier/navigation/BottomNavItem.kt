@@ -1,17 +1,22 @@
-package com.torrydo.compose_easier.navigation.ext
+package com.torrydo.compose_easier.navigation
 
 import androidx.compose.foundation.layout.RowScope
-import androidx.compose.material.BottomNavigationItem
-import androidx.compose.material.Icon
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavHostController
-import com.torrydo.compose_easier.navigation.BottomNavItem
+
+
+open class BottomNavItem(
+    val route: String,
+    val title: String,
+    val icon: ImageVector,
+)
 
 @Composable
-fun RowScope.BottomNavItem(
+fun RowScope.BottomNavItemBuilder(
     itemHomeBottom: BottomNavItem,
     currentDestination: NavDestination?,
     navController: NavHostController
