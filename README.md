@@ -15,7 +15,9 @@
 
 ## Getting started 🍕🍔🍟
 
-1. Ensure your app’s minimum SDK version is 21+. This is declared in the module-level `build.gradle` file.
+<details> <summary> Ensure your app’s minimum SDK version is 21+ and `mavenCentral()` included</summary>
+</br>
+1. Ensure your app’s minimum SDK version is 21+. This is declared in the module-level `build.gradle` file 
 
 ```gradle
 android {
@@ -24,6 +26,7 @@ android {
         minSdk 21
     }
 ```
+
 2. Ensure the `mavenCentral()` repository is declared in the project-level `build.gradle` or `setting.gradle` file:
 
     <details><summary>build.gradle (project-level)</summary>
@@ -41,7 +44,7 @@ android {
     </details>
 
 
-    <details><summary>settings.gradle</summary>
+    <details><summary>settings.gradle (alternative step If "allprojects" not found in the above step)</summary>
 
     ```gradle
     pluginManagement {
@@ -61,8 +64,11 @@ android {
 
     </details>
 
+</details>
 
-3. Declare the dependencies in the module-level `build.gradle` file
+</br>
+
+Declare the dependencies in the module-level `build.gradle` file
 ```gradle
     dependencies {
         implementation("io.github.torrydo:compose-easier:<LATEST_VERSION>")
